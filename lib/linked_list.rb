@@ -15,10 +15,12 @@ class LinkedList
       puts "node was added as head"
     else
       pointer = head
-      until pointer.next_node?.nil?
-        pointer = pointer.next_node?
+      until pointer.next_node.nil?
+        pointer = pointer.next_node
       end
       pointer.next_node = Node.new(value)
+      @tail = pointer.next_node
+      puts "node was added as tail"
     end
   end
 end
