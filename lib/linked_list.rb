@@ -11,8 +11,7 @@ class LinkedList
     if head.nil?
       @head = Node.new(value)
       @tail = @head
-      p head
-      puts "node was added as head"
+      puts "node was added as head because head = nil"
     else
       pointer = head
       until pointer.next_node.nil?
@@ -21,6 +20,18 @@ class LinkedList
       pointer.next_node = Node.new(value)
       @tail = pointer.next_node
       puts "node was added as tail"
+    end
+  end
+
+  def prepend(value)
+    if head.nil?
+      @head = Node.new(value)
+      @tail = @head
+      puts "node was added as head because head = nil"
+    else
+      temp = @head
+      @head = Node.new(value, temp)
+      puts "node was added as head"
     end
   end
 end
