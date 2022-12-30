@@ -34,4 +34,16 @@ class LinkedList
       puts "node was added as head"
     end
   end
+
+  def size
+    count = 1
+    return 0 if head.nil?
+
+    pointer = head
+    until pointer.next_node.nil?
+      count += 1
+      pointer = pointer.next_node
+    end
+    count
+  end
 end
