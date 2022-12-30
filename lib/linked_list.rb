@@ -46,4 +46,20 @@ class LinkedList
     end
     count
   end
+
+  # head and tail methods already available via attr_accessor
+
+  def at(index)
+    return "empty list" if head.nil?
+
+    pointer = head
+    begin
+      index.times { pointer = pointer.next_node }
+    rescue
+      "no node at #{index}"
+    end
+    return "no node at #{index}" if pointer.nil?
+    
+    pointer
+  end
 end
