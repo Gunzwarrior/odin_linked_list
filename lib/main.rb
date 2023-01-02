@@ -5,6 +5,7 @@ p list
 p list.contains?("lol")
 p list.at(1)
 p list.pop
+puts list.to_s
 list.prepend("B")
 p list
 p list.contains?("B")
@@ -40,3 +41,4 @@ p list.contains?("Z")
 p list.find("Z")
 p list.find("B")
 p list.find("A")
+puts list.to_s

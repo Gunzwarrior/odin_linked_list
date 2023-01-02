@@ -109,4 +109,16 @@ class LinkedList
     nil
   end
 
+  def to_s
+    return "nil" if head.nil?
+    string = "( #{head.value} ) -> nil"
+
+    pointer = head
+    until pointer.next_node.nil?
+      pointer = pointer.next_node
+      string.insert(-5, " ( #{pointer.value} ) ->")
+    end
+    string
+  end
+
 end
