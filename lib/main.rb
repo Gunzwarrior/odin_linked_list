@@ -7,8 +7,11 @@ p list
 p list.contains?('lol')
 p list.at(1)
 p list.pop
+p list.remove_at(0)
 puts list.to_s
 list.prepend('B')
+p list
+p list.remove_at(1)
 p list
 p list.insert_at('O', 0)
 p list
@@ -54,3 +57,13 @@ p list.insert_at('N', 6)
 puts list.to_s
 p list
 p list.insert_at('H', 8)
+p list
+p list.remove_at(0)
+p list
+puts list.to_s
+p list.remove_at(1)
+p list
+puts list.to_s
+p list.remove_at(4)
+p list
+puts list.to_s

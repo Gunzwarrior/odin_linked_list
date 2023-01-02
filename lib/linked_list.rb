@@ -147,4 +147,33 @@ class LinkedList
       @tail = second_pointer.next_node if pointer.nil?
     end
   end
+
+  def remove_at(index)
+    return 'empty list' if head.nil?
+
+    if index.zero?
+      @tail = nil if head == tail
+      to_return = @head
+      new_head = head.next_node
+      @head = new_head
+      to_return
+    else
+
+      pointer = head
+      second_pointer = nil
+      begin
+        index.times do
+          second_pointer = pointer
+          pointer = pointer.next_node
+        end
+      rescue StandardError
+        return "rescue no node at #{index}"
+      end
+      return "no node at #{index}" if pointer.nil?
+
+      second_pointer.next_node = pointer.next_node
+      @tail = second_pointer if pointer.next_node.nil?
+      pointer
+    end
+  end
 end
