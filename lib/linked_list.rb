@@ -1,7 +1,11 @@
-require_relative "node"
+# frozen_string_literal: true
 
+require_relative 'node'
+
+# Class representing a linked list
 class LinkedList
   attr_accessor :head, :tail
+
   def initialize
     @head = nil
     @tail = nil
@@ -11,15 +15,11 @@ class LinkedList
     if head.nil?
       @head = Node.new(value)
       @tail = @head
-      puts "node was added as head because head = nil"
     else
       pointer = head
-      until pointer.next_node.nil?
-        pointer = pointer.next_node
-      end
+      pointer = pointer.next_node until pointer.next_node.nil?
       pointer.next_node = Node.new(value)
       @tail = pointer.next_node
-      puts "node was added as tail"
     end
   end
 
@@ -27,11 +27,9 @@ class LinkedList
     if head.nil?
       @head = Node.new(value)
       @tail = @head
-      puts "node was added as head because head = nil"
     else
       temp = @head
       @head = Node.new(value, temp)
-      puts "node was added as head"
     end
   end
 
@@ -50,45 +48,47 @@ class LinkedList
   # head and tail methods already available via attr_accessor
 
   def at(index)
-    return "empty list" if head.nil?
+    return 'empty list' if head.nil?
 
     pointer = head
     begin
       index.times { pointer = pointer.next_node }
-    rescue
+    rescue StandardError
       "no node at #{index}"
     end
     return "no node at #{index}" if pointer.nil?
-    
+
     pointer
   end
 
   def pop
-    return "empty list" if head.nil?
+    return 'empty list' if head.nil?
 
     if head == tail
+      to_return = head
       @head = nil
       @tail = nil
+      to_return
+
     else
       pointer = head
       second_pointer = nil
       until pointer.next_node.nil?
         second_pointer = pointer
         pointer = pointer.next_node
-        p "pointer is #{pointer} ; second pointer is #{second_pointer}"
       end
-      to_return = second_pointer.next_node
       second_pointer.next_node = nil
       @tail = second_pointer
-      puts "node was popped"
-      to_return
+      pointer
     end
   end
 
   def contains?(value)
     return false if head.nil?
+
     pointer = head
     return true if head.value == value
+
     until pointer.next_node.nil?
       pointer = pointer.next_node
       return true if pointer.value == value
@@ -97,6 +97,8 @@ class LinkedList
   end
 
   def find(value)
+    return 'empty list' if head.nil?
+
     return 0 if head.value == value
 
     pointer = head
@@ -110,7 +112,8 @@ class LinkedList
   end
 
   def to_s
-    return "nil" if head.nil?
+    return 'nil' if head.nil?
+
     string = "( #{head.value} ) -> nil"
 
     pointer = head
@@ -120,5 +123,4 @@ class LinkedList
     end
     string
   end
-
 end
