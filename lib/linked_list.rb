@@ -84,4 +84,16 @@ class LinkedList
       to_return
     end
   end
+
+  def contains?(value)
+    return false if head.nil?
+    pointer = head
+    return true if head.value == value
+    until pointer.next_node.nil?
+      pointer = pointer.next_node
+      return true if pointer.value == value
+    end
+    false
+  end
+
 end

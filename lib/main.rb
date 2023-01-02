@@ -2,10 +2,12 @@ require_relative 'linked_list'
 
 list = LinkedList.new
 p list
+p list.contains?("lol")
 p list.at(1)
 p list.pop
 list.prepend("B")
 p list
+p list.contains?("B")
 p list.at(1)
 list.append("X")
 p list
@@ -28,3 +30,6 @@ p list.at(3)
 p list.at(10)
 p list.pop
 p list
+p list.contains?("a")
+p list.contains?("A")
+p list.contains?("Z")
