@@ -10,6 +10,8 @@ p list.pop
 puts list.to_s
 list.prepend('B')
 p list
+p list.insert_at('O', 0)
+p list
 p list.pop
 p list.contains?('B')
 p list.at(1)
@@ -45,3 +47,10 @@ p list.find('Z')
 p list.find('B')
 p list.find('A')
 puts list.to_s
+p list.insert_at('L', 1)
+p list.insert_at('M', 0)
+puts list.to_s
+p list.insert_at('N', 6)
+puts list.to_s
+p list
+p list.insert_at('H', 8)

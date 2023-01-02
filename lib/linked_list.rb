@@ -123,4 +123,28 @@ class LinkedList
     end
     string
   end
+
+  def insert_at(value, index)
+    return 'empty list' if head.nil?
+
+    if index.zero?
+      new_head = Node.new(value, head)
+      @head = new_head
+
+    else
+
+      pointer = head
+      second_pointer = nil
+      begin
+        index.times do
+          second_pointer = pointer
+          pointer = pointer.next_node
+        end
+      rescue StandardError
+        return "rescue no node at #{index}"
+      end
+      second_pointer.next_node = Node.new(value, pointer)
+      @tail = second_pointer.next_node if pointer.nil?
+    end
+  end
 end
