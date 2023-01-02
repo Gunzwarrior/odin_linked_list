@@ -3,11 +3,13 @@ require_relative 'linked_list'
 list = LinkedList.new
 p list
 p list.at(1)
+p list.pop
 list.prepend("B")
 p list
 p list.at(1)
 list.append("X")
 p list
+p list.pop
 list.append("Y")
 p list
 list.append("Z")
@@ -24,3 +26,5 @@ p list.at(0)
 p list.at(1)
 p list.at(3)
 p list.at(10)
+p list.pop
+p list

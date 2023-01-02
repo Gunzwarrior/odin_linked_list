@@ -62,4 +62,26 @@ class LinkedList
     
     pointer
   end
+
+  def pop
+    return "empty list" if head.nil?
+
+    if head == tail
+      @head = nil
+      @tail = nil
+    else
+      pointer = head
+      second_pointer = nil
+      until pointer.next_node.nil?
+        second_pointer = pointer
+        pointer = pointer.next_node
+        p "pointer is #{pointer} ; second pointer is #{second_pointer}"
+      end
+      to_return = second_pointer.next_node
+      second_pointer.next_node = nil
+      @tail = second_pointer
+      puts "node was popped"
+      to_return
+    end
+  end
 end
