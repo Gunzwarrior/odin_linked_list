@@ -96,4 +96,17 @@ class LinkedList
     false
   end
 
+  def find(value)
+    return 0 if head.value == value
+
+    pointer = head
+    index = 0
+    until pointer.next_node.nil?
+      pointer = pointer.next_node
+      index += 1
+      return index if pointer.value == value
+    end
+    nil
+  end
+
 end

@@ -9,8 +9,12 @@ list.prepend("B")
 p list
 p list.contains?("B")
 p list.at(1)
+p list.find("b")
+p list.find("B")
 list.append("X")
 p list
+p list.find("X")
+p list.find("B")
 p list.pop
 list.append("Y")
 p list
@@ -33,3 +37,6 @@ p list
 p list.contains?("a")
 p list.contains?("A")
 p list.contains?("Z")
+p list.find("Z")
+p list.find("B")
+p list.find("A")
